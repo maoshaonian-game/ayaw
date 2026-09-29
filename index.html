@@ -3,14 +3,500 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的游戏</title>
+    <title>历史人格测试 · 你是哪位历史人物？</title>
     <style>
-        body { font-family: sans-serif; background: #1a1a2e; color: #eee; text-align: center; padding: 50px; }
-        h1 { color: #e94560; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(145deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: #eee;
+        }
+        .container {
+            max-width: 680px;
+            width: 100%;
+            background: rgba(26, 26, 46, 0.85);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 32px 28px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(233, 69, 96, 0.2);
+        }
+        h1 {
+            font-size: 1.6rem;
+            text-align: center;
+            margin-bottom: 8px;
+            color: #e94560;
+            letter-spacing: 1px;
+        }
+        .subtitle {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #8a8aa3;
+            margin-bottom: 28px;
+        }
+        .progress-bar {
+            height: 6px;
+            background: #2a2a40;
+            border-radius: 10px;
+            margin-bottom: 24px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #e94560, #f5a623);
+            border-radius: 10px;
+            transition: width 0.3s ease;
+            width: 0%;
+        }
+        .question {
+            font-size: 1.15rem;
+            line-height: 1.6;
+            margin-bottom: 24px;
+            font-weight: 500;
+        }
+        .question .num {
+            color: #e94560;
+            font-weight: 700;
+            margin-right: 6px;
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .option {
+            background: #1e1e36;
+            border: 1.5px solid #2e2e4a;
+            border-radius: 14px;
+            padding: 16px 18px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #d0d0e0;
+            text-align: left;
+        }
+        .option:hover {
+            background: #252545;
+            border-color: #e94560;
+            transform: translateX(4px);
+            color: #fff;
+        }
+        .option.selected {
+            background: #2a1a30;
+            border-color: #e94560;
+            color: #fff;
+        }
+        .result {
+            display: none;
+            text-align: center;
+            animation: fadeIn 0.6s ease;
+        }
+        .result.show { display: block; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .result-type {
+            font-size: 2.6rem;
+            font-weight: 700;
+            color: #e94560;
+            letter-spacing: 3px;
+            margin-bottom: 6px;
+        }
+        .result-person {
+            font-size: 1.6rem;
+            color: #f5a623;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+        .result-quote {
+            font-size: 1rem;
+            font-style: italic;
+            color: #b0b0c8;
+            margin-bottom: 20px;
+            padding: 0 16px;
+            line-height: 1.6;
+        }
+        .result-desc {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: #c8c8d8;
+            text-align: left;
+            background: rgba(233, 69, 96, 0.08);
+            padding: 18px 20px;
+            border-radius: 14px;
+            margin-bottom: 24px;
+            border-left: 3px solid #e94560;
+        }
+        .result-gender-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            padding: 3px 10px;
+            border-radius: 20px;
+            background: rgba(245, 166, 35, 0.15);
+            color: #f5a623;
+            margin-bottom: 12px;
+        }
+        .btn {
+            background: linear-gradient(135deg, #e94560, #c7304a);
+            border: none;
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 14px 44px;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 8px 20px rgba(233, 69, 96, 0.35);
+            letter-spacing: 1px;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(233, 69, 96, 0.5);
+        }
+        .btn:active { transform: translateY(0); }
+        .restart-btn {
+            background: transparent;
+            border: 1.5px solid #3a3a5a;
+            color: #a0a0b8;
+            font-size: 0.9rem;
+            padding: 10px 30px;
+            border-radius: 40px;
+            cursor: pointer;
+            margin-top: 12px;
+            transition: all 0.2s;
+        }
+        .restart-btn:hover {
+            border-color: #e94560;
+            color: #e94560;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.7rem;
+            color: #5a5a78;
+        }
     </style>
 </head>
 <body>
-    <h1>🎉 网页上传成功！</h1>
-    <p>这是我的第一个网页，之后会放上 MBTI 测试游戏。</p>
+<div class="container">
+    <h1>🏛️ 历史人格测试</h1>
+    <p class="subtitle">穿越历史长河，看看你是哪位历史人物</p>
+
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+
+    <div id="questionArea">
+        <div class="question" id="questionText"></div>
+        <div class="options" id="optionsArea"></div>
+    </div>
+
+    <div class="result" id="resultArea">
+        <div class="result-type" id="resultType"></div>
+        <div class="result-person" id="resultPerson"></div>
+        <div class="result-gender-tag" id="resultGenderTag"></div>
+        <div class="result-quote" id="resultQuote"></div>
+        <div class="result-desc" id="resultDesc"></div>
+        <button class="btn" onclick="restart()">再测一次</button>
+        <br>
+        <button class="restart-btn" onclick="restart()">↻ 重新开始</button>
+    </div>
+
+    <div class="footer">历史人物人格测试 · 仅供娱乐</div>
+</div>
+
+<script>
+// ===================== 16 型人格数据 =====================
+const PERSONALITIES = {
+    INTJ: {
+        person: "诸葛亮",
+        gender: "男",
+        quote: "鞠躬尽瘁，死而后已。",
+        desc: "你像诸葛亮一样，深谋远虑、运筹帷幄。你善于从全局出发思考问题，对未来有清晰的规划，做事有条不紊。你独立而坚定，不轻易被外界干扰，心中始终装着更大的格局。"
+    },
+    INTP: {
+        person: "庄子",
+        gender: "男",
+        quote: "吾生也有涯，而知也无涯。",
+        desc: "你像庄子一样，思想自由、好奇心旺盛，喜欢探索事物的本质。你享受独立思考的乐趣，对世界充满哲学式的追问，不盲从权威，追求精神上的逍遥与自在。"
+    },
+    ENTJ: {
+        person: "秦始皇",
+        gender: "男",
+        quote: "朕为始皇帝，后世以计数。",
+        desc: "你像秦始皇一样，目标明确、魄力非凡，天生具有领导者的气场。你善于制定战略并坚决执行，能够调动资源、统领全局，在混乱中建立秩序，是推动时代向前的人。"
+    },
+    ENTP: {
+        person: "班昭",
+        gender: "女",
+        quote: "夫不贤则无以御妇，妇不贤则无以事夫。",
+        desc: "你像班昭一样，才华横溢、思维敏捷，善于辩论与表达。你博学多识，能在传统与创新之间找到平衡，既有独立见解，又能以柔克刚，用智慧影响身边的人。"
+    },
+    INFJ: {
+        person: "老子",
+        gender: "男",
+        quote: "上善若水，水善利万物而不争。",
+        desc: "你像老子一样，洞察世事、内心深邃，追求一种更高的智慧。你善于理解他人，能看到事物背后的规律，不争不抢，却以柔克刚，以一种温和而深远的方式影响世界。"
+    },
+    INFP: {
+        person: "陶渊明",
+        gender: "男",
+        quote: "采菊东篱下，悠然见南山。",
+        desc: "你像陶渊明一样，内心纯净、向往自由，不愿被世俗束缚。你忠于自己的价值观，追求精神上的丰盈与安宁，在平凡的日子里也能发现诗意与美好。"
+    },
+    ENFJ: {
+        person: "孔子",
+        gender: "男",
+        quote: "己所不欲，勿施于人。",
+        desc: "你像孔子一样，心怀天下、以教化他人为己任。你善于倾听与引导，重视人与人之间的关系，希望通过自己的努力让世界变得更有秩序、更有温度。"
+    },
+    ENFP: {
+        person: "李白",
+        gender: "男",
+        quote: "天生我材必有用，千金散尽还复来。",
+        desc: "你像李白一样，热情奔放、才华横溢，向往无拘无束的生活。你充满想象力，敢于表达真实的自己，喜欢结交朋友，在自由中寻找灵感与快乐。"
+    },
+    ISTJ: {
+        person: "包拯",
+        gender: "男",
+        quote: "清心为治本，直道是身谋。",
+        desc: "你像包拯一样，正直严谨、坚守原则。你重视规则与责任，做事一丝不苟，值得信赖。你不畏强权，坚持心中的公义，是身边人最可靠的依靠。"
+    },
+    ISFJ: {
+        person: "墨子",
+        gender: "男",
+        quote: "兼相爱，交相利。",
+        desc: "你像墨子一样，默默付出、心怀大爱。你关注他人的需要，乐于奉献，追求平等与和平。你不张扬，却用实际行动守护着身边的人和心中的信念。"
+    },
+    ESTJ: {
+        person: "武则天",
+        gender: "女",
+        quote: "欲成大事者，至亲亦可舍。",
+        desc: "你像武则天一样，果断坚决、执行力极强。你目标清晰，敢于打破常规，做事雷厉风行。你有强大的掌控力，能在复杂局面中做出决断，是天生的管理者。"
+    },
+    ESFJ: {
+        person: "长孙皇后",
+        gender: "女",
+        quote: "以铜为镜，可以正衣冠。",
+        desc: "你像长孙皇后一样，温柔贤明、善于协调。你重视家庭与人际关系，乐于助人，能够在幕后默默支持他人。你懂得分寸，用智慧和包容维系着身边的和谐。"
+    },
+    ISTP: {
+        person: "花木兰",
+        gender: "女",
+        quote: "万里赴戎机，关山度若飞。",
+        desc: "你像花木兰一样，冷静务实、行动力强。你不喜欢空谈，更愿意用行动证明自己。面对困难，你沉着应对，勇敢担当，在关键时刻挺身而出。"
+    },
+    ISFP: {
+        person: "李清照",
+        gender: "女",
+        quote: "生当作人杰，死亦为鬼雄。",
+        desc: "你像李清照一样，敏感细腻、才华出众。你对美有着独特的感知力，情感丰富而深刻。你追求真实的自我表达，在平凡中创造出动人的诗意。"
+    },
+    ESTP: {
+        person: "妇好",
+        gender: "女",
+        quote: "巾帼不让须眉，商王武丁之妻。",
+        desc: "你像妇好一样，果敢善战、充满活力。你敢于冒险，反应迅速，善于在变化中抓住机会。你天生具有行动力和决断力，是冲锋在前的先锋人物。"
+    },
+    ESFP: {
+        person: "杨贵妃",
+        gender: "女",
+        quote: "回眸一笑百媚生，六宫粉黛无颜色。",
+        desc: "你像杨贵妃一样，热情开朗、热爱生活。你享受当下的美好，善于感染身边的人。你懂得欣赏美、创造美，是人群中最耀眼的存在，用热情点亮每一天。"
+    }
+};
+
+// ===================== 题目数据 =====================
+// 每道题 3 个选项，每个选项给一个维度加分
+const QUESTIONS = [
+    {
+        q: "你穿越到战国末期，天下大乱。你会选择？",
+        options: [
+            { text: "投奔秦国，辅佐嬴政统一天下", score: { T: 1, J: 1 } },
+            { text: "隐居山林，著书立说，思考天下大道", score: { I: 1, N: 1 } },
+            { text: "游说列国，传播自己的思想主张", score: { E: 1, F: 1 } }
+        ]
+    },
+    {
+        q: "你来到唐朝长安，皇帝邀你入朝为官。你更想？",
+        options: [
+            { text: "担任要职，推行改革，治理国家", score: { E: 1, J: 1 } },
+            { text: "在翰林院做学问，研究典籍", score: { I: 1, N: 1 } },
+            { text: "走遍天下，用诗词记录盛世", score: { E: 1, P: 1 } }
+        ]
+    },
+    {
+        q: "你身处春秋时期，孔子正在招收弟子。你会？",
+        options: [
+            { text: "拜入孔门，学习礼乐，教化世人", score: { F: 1, J: 1 } },
+            { text: "与孔子辩论，提出自己的见解", score: { T: 1, P: 1 } },
+            { text: "默默旁听，独自思考其中的道理", score: { I: 1, N: 1 } }
+        ]
+    },
+    {
+        q: "你被派去治理一座灾荒中的城池。你的第一反应是？",
+        options: [
+            { text: "立即制定方案，调拨粮草，稳定局势", score: { S: 1, J: 1 } },
+            { text: "先走访百姓，了解真实情况再行动", score: { F: 1, P: 1 } },
+            { text: "分析灾荒的根源，设计长远的制度", score: { N: 1, T: 1 } }
+        ]
+    },
+    {
+        q: "你生活在宋朝，面对外敌入侵。你会？",
+        options: [
+            { text: "投笔从戎，上阵杀敌", score: { E: 1, S: 1 } },
+            { text: "写诗明志，用文字唤醒人心", score: { I: 1, F: 1 } },
+            { text: "研究兵法，为将领出谋划策", score: { T: 1, J: 1 } }
+        ]
+    },
+    {
+        q: "你是一位古代工匠，面对一项复杂的工程。你更倾向于？",
+        options: [
+            { text: "按传统方法稳扎稳打，确保不出错", score: { S: 1, J: 1 } },
+            { text: "尝试新方法，哪怕有风险也要创新", score: { N: 1, P: 1 } },
+            { text: "与同行讨论，博采众长", score: { E: 1, F: 1 } }
+        ]
+    },
+    {
+        q: "你穿越到汉朝，被任命为地方官。你更看重？",
+        options: [
+            { text: "严格执法，维护秩序", score: { T: 1, J: 1 } },
+            { text: "体恤民情，以德服人", score: { F: 1, P: 1 } },
+            { text: "发展生产，让百姓富足", score: { S: 1, E: 1 } }
+        ]
+    },
+    {
+        q: "你在古代书院求学，先生让你评价一位历史人物。你会？",
+        options: [
+            { text: "客观分析其功过，不掺杂感情", score: { T: 1, N: 1 } },
+            { text: "关注他对百姓的影响，心怀悲悯", score: { F: 1, S: 1 } },
+            { text: "结合时代背景，给出全面评价", score: { N: 1, J: 1 } }
+        ]
+    },
+    {
+        q: "你是一位古代女子，面对命运的安排。你会？",
+        options: [
+            { text: "勇敢抗争，掌握自己的命运", score: { E: 1, T: 1 } },
+            { text: "以柔克刚，用智慧化解困境", score: { I: 1, F: 1 } },
+            { text: "顺应天命，在平凡中寻找安宁", score: { S: 1, P: 1 } }
+        ]
+    },
+    {
+        q: "你被邀请参加一场古代文人的雅集。你会？",
+        options: [
+            { text: "高谈阔论，成为全场焦点", score: { E: 1, N: 1 } },
+            { text: "静静聆听，偶尔发表独到见解", score: { I: 1, T: 1 } },
+            { text: "与志同道合者私下交流，结交知己", score: { F: 1, P: 1 } }
+        ]
+    },
+    {
+        q: "你身处乱世，手中有一支军队。你的选择是？",
+        options: [
+            { text: "攻城略地，建立自己的霸业", score: { E: 1, J: 1 } },
+            { text: "保境安民，守护一方百姓", score: { F: 1, S: 1 } },
+            { text: "审时度势，选择明主辅佐", score: { I: 1, T: 1 } }
+        ]
+    },
+    {
+        q: "你即将离开人世，回望一生。你最希望留下？",
+        options: [
+            { text: "不朽的功业，改变时代的走向", score: { E: 1, J: 1 } },
+            { text: "传世的思想，启迪后人的智慧", score: { I: 1, N: 1 } },
+            { text: "温暖的情谊，被人深深铭记", score: { F: 1, P: 1 } }
+        ]
+    }
+];
+
+// ===================== 游戏逻辑 =====================
+let currentQuestion = 0;
+let scores = { E: 0, I: 0, S: 0, N: 0, T: 0, F: 0, J: 0, P: 0 };
+
+const questionArea = document.getElementById('questionArea');
+const resultArea = document.getElementById('resultArea');
+const progressFill = document.getElementById('progressFill');
+const questionText = document.getElementById('questionText');
+const optionsArea = document.getElementById('optionsArea');
+
+function renderQuestion() {
+    if (currentQuestion >= QUESTIONS.length) {
+        showResult();
+        return;
+    }
+
+    const q = QUESTIONS[currentQuestion];
+    questionText.innerHTML = `<span class="num">Q${currentQuestion + 1}.</span> ${q.q}`;
+
+    optionsArea.innerHTML = '';
+    q.options.forEach((opt, idx) => {
+        const div = document.createElement('div');
+        div.className = 'option';
+        div.textContent = `${String.fromCharCode(65 + idx)}. ${opt.text}`;
+        div.onclick = () => selectOption(opt, div);
+        optionsArea.appendChild(div);
+    });
+
+    // 更新进度条
+    const progress = (currentQuestion / QUESTIONS.length) * 100;
+    progressFill.style.width = progress + '%';
+}
+
+function selectOption(opt, el) {
+    // 防止重复点击
+    if (el.classList.contains('selected')) return;
+    el.classList.add('selected');
+
+    // 加分
+    for (let key in opt.score) {
+        if (scores[key] !== undefined) {
+            scores[key] += opt.score[key];
+        }
+    }
+
+    // 延迟后进入下一题
+    setTimeout(() => {
+        currentQuestion++;
+        renderQuestion();
+    }, 250);
+}
+
+function showResult() {
+    questionArea.style.display = 'none';
+    resultArea.classList.add('show');
+    progressFill.style.width = '100%';
+
+    // 计算 MBTI
+    const type = [
+        scores.E >= scores.I ? 'E' : 'I',
+        scores.S >= scores.N ? 'S' : 'N',
+        scores.T >= scores.F ? 'T' : 'F',
+        scores.J >= scores.P ? 'J' : 'P'
+    ].join('');
+
+    const p = PERSONALITIES[type] || PERSONALITIES.INTJ;
+
+    document.getElementById('resultType').textContent = type;
+    document.getElementById('resultPerson').textContent = '你像 ' + p.person;
+    document.getElementById('resultGenderTag').textContent = p.gender === '女' ? '♀ 女性历史人物' : '♂ 男性历史人物';
+    document.getElementById('resultQuote').textContent = '“' + p.quote + '”';
+    document.getElementById('resultDesc').textContent = p.desc;
+}
+
+function restart() {
+    currentQuestion = 0;
+    scores = { E: 0, I: 0, S: 0, N: 0, T: 0, F: 0, J: 0, P: 0 };
+    questionArea.style.display = 'block';
+    resultArea.classList.remove('show');
+    progressFill.style.width = '0%';
+    renderQuestion();
+}
+
+// 启动
+renderQuestion();
+</script>
 </body>
 </html>
