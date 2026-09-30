@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>我的游戏小站</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+    font-family: 'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;
+    background: linear-gradient(145deg, #1a1a2e, #16213e);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    color: #eee;
+}
+h1 { color: #e94560; margin-bottom: 10px; font-size: 2rem; letter-spacing: 3px; }
+.subtitle { color: #8a8aa3; font-size: 0.85rem; margin-bottom: 40px; }
+.game-list { display: flex; flex-direction: column; gap: 16px; width: 100%; max-width: 420px; }
+.game-card {
+    background: #1e1e36;
+    border: 1.5px solid #2e2e4a;
+    border-radius: 16px;
+    padding: 20px 24px;
+    text-decoration: none;
+    color: #d0d0e0;
+    transition: all 0.2s;
+    display: block;
+}
+.game-card:hover {
+    border-color: #e94560;
+    transform: translateX(6px);
+    color: #fff;
+    background: #252545;
+}
+.game-card h2 { font-size: 1.15rem; margin-bottom: 6px; color: #f5a623; }
+.game-card p { font-size: 0.85rem; color: #8a8aa3; }
+.footer { margin-top: 40px; font-size: 0.75rem; color: #5a5a78; }
+</style>
+</head>
+<body>
+    <h1>🎮 我的游戏小站</h1>
+    <p class="subtitle">选一个游戏开始吧</p>
+    <div class="game-list">
+        <a class="game-card" href="mbti.html">
+            <h2>🏛️ 历史人格测试</h2>
+            <p>穿越历史长河，看看你是哪位历史人物</p>
+        </a>
+        <a class="game-card" href="otome.html">
+            <h2>💕 宫廷恋歌</h2>
+            <p>一个关于选择与心动的乙女游戏</p>
+        </a>
+    </div>
+    <div class="footer">—— 我的游戏小站 · 持续更新 ——</div>
+</body>
+</html>
