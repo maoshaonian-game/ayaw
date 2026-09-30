@@ -26,410 +26,573 @@
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
             border: 1px solid rgba(233, 69, 96, 0.2);
         }
-        h1 {
-            font-size: 1.6rem;
-            text-align: center;
-            margin-bottom: 8px;
-            color: #e94560;
-            letter-spacing: 1px;
-        }
-        .subtitle {
-            text-align: center;
-            font-size: 0.85rem;
-            color: #8a8aa3;
-            margin-bottom: 28px;
-        }
-        .progress-bar {
-            height: 6px;
-            background: #2a2a40;
-            border-radius: 10px;
-            margin-bottom: 24px;
-            overflow: hidden;
-        }
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #e94560, #f5a623);
-            border-radius: 10px;
-            transition: width 0.3s ease;
-            width: 0%;
-        }
-        .question {
-            font-size: 1.15rem;
-            line-height: 1.6;
-            margin-bottom: 24px;
-            font-weight: 500;
-        }
-        .question .num {
-            color: #e94560;
-            font-weight: 700;
-            margin-right: 6px;
-        }
-        .options {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
+        h1 { font-size: 1.6rem; text-align: center; margin-bottom: 8px; color: #e94560; letter-spacing: 1px; }
+        .subtitle { text-align: center; font-size: 0.85rem; color: #8a8aa3; margin-bottom: 28px; }
+        .progress-bar { height: 6px; background: #2a2a40; border-radius: 10px; margin-bottom: 24px; overflow: hidden; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, #e94560, #f5a623); border-radius: 10px; transition: width 0.3s ease; width: 0%; }
+        .question { font-size: 1.15rem; line-height: 1.6; margin-bottom: 24px; font-weight: 500; }
+        .question .num { color: #e94560; font-weight: 700; margin-right: 6px; }
+        .story { font-size: 0.9rem; color: #8a8aa3; margin-bottom: 16px; line-height: 1.7; font-style: italic; padding: 12px 16px; background: rgba(233, 69, 96, 0.06); border-radius: 10px; border-left: 3px solid #e94560; }
+        .options { display: flex; flex-direction: column; gap: 12px; }
         .option {
-            background: #1e1e36;
-            border: 1.5px solid #2e2e4a;
-            border-radius: 14px;
-            padding: 16px 18px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            font-size: 0.95rem;
-            line-height: 1.5;
-            color: #d0d0e0;
-            text-align: left;
+            background: #1e1e36; border: 1.5px solid #2e2e4a; border-radius: 14px;
+            padding: 16px 18px; cursor: pointer; transition: all 0.2s ease;
+            font-size: 0.95rem; line-height: 1.5; color: #d0d0e0; text-align: left;
         }
-        .option:hover {
-            background: #252545;
-            border-color: #e94560;
-            transform: translateX(4px);
-            color: #fff;
-        }
-        .option.selected {
-            background: #2a1a30;
-            border-color: #e94560;
-            color: #fff;
-        }
-        .result {
-            display: none;
-            text-align: center;
-            animation: fadeIn 0.6s ease;
-        }
+        .option:hover { background: #252545; border-color: #e94560; transform: translateX(4px); color: #fff; }
+        .option.selected { background: #2a1a30; border-color: #e94560; color: #fff; }
+        .result { display: none; text-align: center; animation: fadeIn 0.6s ease; }
         .result.show { display: block; }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .result-type {
-            font-size: 2.6rem;
-            font-weight: 700;
-            color: #e94560;
-            letter-spacing: 3px;
-            margin-bottom: 6px;
-        }
-        .result-person {
-            font-size: 1.6rem;
-            color: #f5a623;
-            margin-bottom: 16px;
-            font-weight: 600;
-        }
-        .result-quote {
-            font-size: 1rem;
-            font-style: italic;
-            color: #b0b0c8;
-            margin-bottom: 20px;
-            padding: 0 16px;
-            line-height: 1.6;
-        }
-        .result-desc {
-            font-size: 0.95rem;
-            line-height: 1.8;
-            color: #c8c8d8;
-            text-align: left;
-            background: rgba(233, 69, 96, 0.08);
-            padding: 18px 20px;
-            border-radius: 14px;
-            margin-bottom: 24px;
-            border-left: 3px solid #e94560;
-        }
-        .result-gender-tag {
-            display: inline-block;
-            font-size: 0.75rem;
-            padding: 3px 10px;
-            border-radius: 20px;
-            background: rgba(245, 166, 35, 0.15);
-            color: #f5a623;
-            margin-bottom: 12px;
-        }
-        .btn {
-            background: linear-gradient(135deg, #e94560, #c7304a);
-            border: none;
-            color: #fff;
-            font-size: 1rem;
-            font-weight: 600;
-            padding: 14px 44px;
-            border-radius: 40px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            box-shadow: 0 8px 20px rgba(233, 69, 96, 0.35);
-            letter-spacing: 1px;
-        }
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 28px rgba(233, 69, 96, 0.5);
-        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .result-type { font-size: 2.6rem; font-weight: 700; color: #e94560; letter-spacing: 3px; margin-bottom: 6px; }
+        .result-person { font-size: 1.6rem; color: #f5a623; margin-bottom: 16px; font-weight: 600; }
+        .result-quote { font-size: 1rem; font-style: italic; color: #b0b0c8; margin-bottom: 20px; padding: 0 16px; line-height: 1.6; }
+        .result-desc { font-size: 0.95rem; line-height: 1.8; color: #c8c8d8; text-align: left; background: rgba(233, 69, 96, 0.08); padding: 18px 20px; border-radius: 14px; margin-bottom: 16px; border-left: 3px solid #e94560; }
+        .result-ending { font-size: 0.95rem; line-height: 1.8; color: #c8c8d8; text-align: left; background: rgba(245, 166, 35, 0.08); padding: 18px 20px; border-radius: 14px; margin-bottom: 24px; border-left: 3px solid #f5a623; }
+        .result-ending .ending-title { font-size: 1.1rem; color: #f5a623; font-weight: 700; margin-bottom: 8px; }
+        .result-gender-tag { display: inline-block; font-size: 0.75rem; padding: 3px 10px; border-radius: 20px; background: rgba(245, 166, 35, 0.15); color: #f5a623; margin-bottom: 12px; }
+        .btn { background: linear-gradient(135deg, #e94560, #c7304a); border: none; color: #fff; font-size: 1rem; font-weight: 600; padding: 14px 44px; border-radius: 40px; cursor: pointer; transition: all 0.2s ease; box-shadow: 0 8px 20px rgba(233, 69, 96, 0.35); letter-spacing: 1px; }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(233, 69, 96, 0.5); }
         .btn:active { transform: translateY(0); }
-        .restart-btn {
-            background: transparent;
-            border: 1.5px solid #3a3a5a;
-            color: #a0a0b8;
-            font-size: 0.9rem;
-            padding: 10px 30px;
-            border-radius: 40px;
-            cursor: pointer;
-            margin-top: 12px;
-            transition: all 0.2s;
-        }
-        .restart-btn:hover {
-            border-color: #e94560;
-            color: #e94560;
-        }
-        .footer {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 0.7rem;
-            color: #5a5a78;
-        }
+        .restart-btn { background: transparent; border: 1.5px solid #3a3a5a; color: #a0a0b8; font-size: 0.9rem; padding: 10px 30px; border-radius: 40px; cursor: pointer; margin-top: 12px; transition: all 0.2s; }
+        .restart-btn:hover { border-color: #e94560; color: #e94560; }
+        .footer { text-align: center; margin-top: 20px; font-size: 0.7rem; color: #5a5a78; }
+        .gender-select { display: flex; flex-direction: column; gap: 14px; margin-top: 10px; }
+        .gender-btn { background: #1e1e36; border: 1.5px solid #2e2e4a; border-radius: 16px; padding: 20px; cursor: pointer; transition: all 0.2s; font-size: 1.1rem; color: #d0d0e0; display: flex; align-items: center; justify-content: center; gap: 12px; }
+        .gender-btn:hover { border-color: #e94560; background: #252545; color: #fff; transform: translateX(4px); }
+        .gender-btn .icon { font-size: 1.6rem; }
     </style>
 </head>
 <body>
 <div class="container">
-    <h1>🏛️ 历史人格测试</h1>
-    <p class="subtitle">穿越历史长河，看看你是哪位历史人物</p>
+    <!-- 开始页面 -->
+    <div id="startScreen">
+        <h1>🏛️ 历史人格测试</h1>
+        <p class="subtitle">穿越历史长河，看看你是哪位历史人物</p>
+        <div class="gender-select">
+            <div class="gender-btn" onclick="selectGender('male')">
+                <span class="icon">👨</span> 我是男生
+            </div>
+            <div class="gender-btn" onclick="selectGender('female')">
+                <span class="icon">👩</span> 我是女生
+            </div>
+        </div>
+        <div class="footer">历史人物人格测试 · 仅供娱乐</div>
+    </div>
 
-    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
-
-    <div id="questionArea">
+    <!-- 测试页面 -->
+    <div id="questionScreen" style="display:none;">
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="story" id="storyText"></div>
         <div class="question" id="questionText"></div>
         <div class="options" id="optionsArea"></div>
     </div>
 
+    <!-- 结果页面 -->
     <div class="result" id="resultArea">
         <div class="result-type" id="resultType"></div>
         <div class="result-person" id="resultPerson"></div>
         <div class="result-gender-tag" id="resultGenderTag"></div>
         <div class="result-quote" id="resultQuote"></div>
         <div class="result-desc" id="resultDesc"></div>
+        <div class="result-ending" id="resultEnding"></div>
         <button class="btn" onclick="restart()">再测一次</button>
         <br>
         <button class="restart-btn" onclick="restart()">↻ 重新开始</button>
     </div>
 
-    <div class="footer">历史人物人格测试 · 仅供娱乐</div>
+    <div class="footer" id="mainFooter">历史人物人格测试 · 仅供娱乐</div>
 </div>
 
 <script>
-// ===================== 16 型人格数据 =====================
-const PERSONALITIES = {
-    INTJ: {
-        person: "诸葛亮",
-        gender: "男",
-        quote: "鞠躬尽瘁，死而后已。",
-        desc: "你像诸葛亮一样，深谋远虑、运筹帷幄。你善于从全局出发思考问题，对未来有清晰的规划，做事有条不紊。你独立而坚定，不轻易被外界干扰，心中始终装着更大的格局。"
+// ===================== 男性人物库 =====================
+const MALE = {
+    INTJ: { person: "诸葛亮", quote: "鞠躬尽瘁，死而后已。", desc: "你像诸葛亮一样，深谋远虑、运筹帷幄。你善于从全局出发思考问题，对未来有清晰的规划，做事有条不紊。你独立而坚定，不轻易被外界干扰，心中始终装着更大的格局。" },
+    INTP: { person: "庄子", quote: "吾生也有涯，而知也无涯。", desc: "你像庄子一样，思想自由、好奇心旺盛，喜欢探索事物的本质。你享受独立思考的乐趣，对世界充满哲学式的追问，不盲从权威，追求精神上的逍遥与自在。" },
+    ENTJ: { person: "秦始皇", quote: "朕为始皇帝，后世以计数。", desc: "你像秦始皇一样，目标明确、魄力非凡，天生具有领导者的气场。你善于制定战略并坚决执行，能够调动资源、统领全局，在混乱中建立秩序，是推动时代向前的人。" },
+    ENTP: { person: "晏子", quote: "橘生淮南则为橘，生于淮北则为枳。", desc: "你像晏子一样，机智善辩、思维敏捷，善于用智慧化解难题。你不拘泥于常规，喜欢挑战权威，在辩论中寻找真理，是人群中最有说服力的那个。" },
+    INFJ: { person: "老子", quote: "上善若水，水善利万物而不争。", desc: "你像老子一样，洞察世事、内心深邃，追求一种更高的智慧。你善于理解他人，能看到事物背后的规律，不争不抢，却以柔克刚，以一种温和而深远的方式影响世界。" },
+    INFP: { person: "陶渊明", quote: "采菊东篱下，悠然见南山。", desc: "你像陶渊明一样，内心纯净、向往自由，不愿被世俗束缚。你忠于自己的价值观，追求精神上的丰盈与安宁，在平凡的日子里也能发现诗意与美好。" },
+    ENFJ: { person: "孔子", quote: "己所不欲，勿施于人。", desc: "你像孔子一样，心怀天下、以教化他人为己任。你善于倾听与引导，重视人与人之间的关系，希望通过自己的努力让世界变得更有秩序、更有温度。" },
+    ENFP: { person: "李白", quote: "天生我材必有用，千金散尽还复来。", desc: "你像李白一样，热情奔放、才华横溢，向往无拘无束的生活。你充满想象力，敢于表达真实的自己，喜欢结交朋友，在自由中寻找灵感与快乐。" },
+    ISTJ: { person: "包拯", quote: "清心为治本，直道是身谋。", desc: "你像包拯一样，正直严谨、坚守原则。你重视规则与责任，做事一丝不苟，值得信赖。你不畏强权，坚持心中的公义，是身边人最可靠的依靠。" },
+    ISFJ: { person: "墨子", quote: "兼相爱，交相利。", desc: "你像墨子一样，默默付出、心怀大爱。你关注他人的需要，乐于奉献，追求平等与和平。你不张扬，却用实际行动守护着身边的人和心中的信念。" },
+    ESTJ: { person: "汉武帝", quote: "犯我强汉者，虽远必诛。", desc: "你像汉武帝一样，果敢坚决、执行力极强。你目标清晰，敢于打破常规，做事雷厉风行。你有强大的掌控力，能在复杂局面中做出决断，是天生的管理者。" },
+    ESFJ: { person: "孟子", quote: "老吾老以及人之老，幼吾幼以及人之幼。", desc: "你像孟子一样，仁爱善良、善于协调。你重视家庭与人际关系，乐于助人，能够在幕后默默支持他人。你懂得分寸，用智慧和包容维系着身边的和谐。" },
+    ISTP: { person: "李时珍", quote: "身如逆流船，心比铁石坚。", desc: "你像李时珍一样，冷静务实、行动力强。你不喜欢空谈，更愿意用行动证明自己。面对困难，你沉着应对，勇敢担当，在关键时刻挺身而出。" },
+    ISFP: { person: "王维", quote: "行到水穷处，坐看云起时。", desc: "你像王维一样，敏感细腻、才华出众。你对美有着独特的感知力，情感丰富而深刻。你追求真实的自我表达，在平凡中创造出动人的诗意。" },
+    ESTP: { person: "项羽", quote: "力拔山兮气盖世。", desc: "你像项羽一样，果敢善战、充满活力。你敢于冒险，反应迅速，善于在变化中抓住机会。你天生具有行动力和决断力，是冲锋在前的先锋人物。" },
+    ESFP: { person: "唐玄宗", quote: "霓裳羽衣曲，盛世繁华梦。", desc: "你像唐玄宗一样，热情开朗、热爱生活。你享受当下的美好，善于感染身边的人。你懂得欣赏美、创造美，是人群中最耀眼的存在，用热情点亮每一天。" }
+};
+
+// ===================== 女性人物库 =====================
+const FEMALE = {
+    INTJ: { person: "上官婉儿", quote: "势如连璧友，心似臭兰人。", desc: "你像上官婉儿一样，聪慧果敢、深谋远虑。你善于在复杂局面中运筹帷幄，既有文人的才情，又有政治家的眼光。你独立坚定，不依附于人，用自己的智慧在历史中留下浓墨重彩的一笔。" },
+    INTP: { person: "班昭", quote: "夫不贤则无以御妇，妇不贤则无以事夫。", desc: "你像班昭一样，博学多才、思维缜密。你热爱知识，善于思考，能在传统与创新之间找到平衡。你独立而沉静，用学识和智慧影响身边的人，是真正的学者型人物。" },
+    ENTJ: { person: "武则天", quote: "欲成大事者，至亲亦可舍。", desc: "你像武则天一样，果断坚决、掌控全局。你目标清晰，敢于打破常规，做事雷厉风行。你有强大的领导力，能在复杂局面中做出决断，是天生的管理者和开拓者。" },
+    ENTP: { person: "卓文君", quote: "愿得一心人，白头不相离。", desc: "你像卓文君一样，大胆热烈、敢爱敢恨。你思维敏捷，不拘泥于世俗，敢于追求自己想要的生活。你善于表达，充满魅力，在挑战中寻找机遇，活出最真实的自己。" },
+    INFJ: { person: "班婕妤", quote: "新裂齐纨素，皎洁如霜雪。", desc: "你像班婕妤一样，聪慧内敛、心思细腻。你善于洞察人心，追求精神上的纯净与高尚。你不争不抢，却以才华和品格赢得尊重，在安静中散发出持久的光芒。" },
+    INFP: { person: "李清照", quote: "生当作人杰，死亦为鬼雄。", desc: "你像李清照一样，敏感细腻、才华横溢。你对美有着独特的感知力，情感丰富而深刻。你追求真实的自我表达，在平凡中创造出动人的诗意，是灵魂里住着诗人的人。" },
+    ENFJ: { person: "孟母", quote: "子不学，断机杼。", desc: "你像孟母一样，心怀大爱、教化为先。你重视家庭与教育，善于引导他人成长。你默默付出，用智慧和耐心培养身边的人，是温暖的守护者和引路人。" },
+    ENFP: { person: "蔡文姬", quote: "胡笳十八拍，声声断人肠。", desc: "你像蔡文姬一样，才华出众、情感丰富。你充满热情，敢于表达真实的自己，在逆境中依然保持对生活的热爱。你用艺术和文字记录人生，感染着每一个认识你的人。" },
+    ISTJ: { person: "妇好", quote: "巾帼不让须眉，商王武丁之妻。", desc: "你像妇好一样，勇敢坚毅、务实可靠。你重视责任与承诺，做事有条不紊。你不畏艰难，敢于担当，在关键时刻挺身而出，是值得信赖的伙伴和领导者。" },
+    ISFJ: { person: "黄道婆", quote: "衣被天下，造福万民。", desc: "你像黄道婆一样，默默奉献、心灵手巧。你关注他人的需要，乐于付出，用实际行动改善身边人的生活。你不张扬，却以持久的努力温暖着世界。" },
+    ESTJ: { person: "萧太后", quote: "以战止战，以杀止杀。", desc: "你像萧太后一样，果敢坚决、掌控全局。你目标明确，执行力强，能在复杂局面中迅速做出判断。你有强大的领导力，善于统筹资源，是推动时代向前的人。" },
+    ESFJ: { person: "长孙皇后", quote: "以铜为镜，可以正衣冠。", desc: "你像长孙皇后一样，温柔贤明、善于协调。你重视家庭与人际关系，乐于助人，能够在幕后默默支持他人。你懂得分寸，用智慧和包容维系着身边的和谐。" },
+    ISTP: { person: "花木兰", quote: "万里赴戎机，关山度若飞。", desc: "你像花木兰一样，冷静务实、行动力强。你不喜欢空谈，更愿意用行动证明自己。面对困难，你沉着应对，勇敢担当，在关键时刻挺身而出。" },
+    ISFP: { person: "朱淑真", quote: "月上柳梢头，人约黄昏后。", desc: "你像朱淑真一样，敏感细腻、才华出众。你对美有着独特的感知力，情感丰富而深刻。你追求真实的自我表达，在平凡中创造出动人的诗意。" },
+    ESTP: { person: "平阳昭公主", quote: "娘子关前，英姿飒爽。", desc: "你像平阳昭公主一样，果敢善战、充满活力。你敢于冒险，反应迅速，善于在变化中抓住机会。你天生具有行动力和决断力，是冲锋在前的先锋人物。" },
+    ESFP: { person: "杨贵妃", quote: "回眸一笑百媚生，六宫粉黛无颜色。", desc: "你像杨贵妃一样，热情开朗、热爱生活。你享受当下的美好，善于感染身边的人。你懂得欣赏美、创造美，是人群中最耀眼的存在，用热情点亮每一天。" }
+};
+
+// ===================== 身份线数据 =====================
+const PATHS = {
+    male: {
+        emperor: { name: "皇帝", emoji: "👑" },
+        eunuch: { name: "太监", emoji: "🏯" },
+        corrupt: { name: "贪官", emoji: "💰" },
+        honest: { name: "清官", emoji: "⚖️" },
+        monk: { name: "和尚", emoji: "🧘" }
     },
-    INTP: {
-        person: "庄子",
-        gender: "男",
-        quote: "吾生也有涯，而知也无涯。",
-        desc: "你像庄子一样，思想自由、好奇心旺盛，喜欢探索事物的本质。你享受独立思考的乐趣，对世界充满哲学式的追问，不盲从权威，追求精神上的逍遥与自在。"
-    },
-    ENTJ: {
-        person: "秦始皇",
-        gender: "男",
-        quote: "朕为始皇帝，后世以计数。",
-        desc: "你像秦始皇一样，目标明确、魄力非凡，天生具有领导者的气场。你善于制定战略并坚决执行，能够调动资源、统领全局，在混乱中建立秩序，是推动时代向前的人。"
-    },
-    ENTP: {
-        person: "班昭",
-        gender: "女",
-        quote: "夫不贤则无以御妇，妇不贤则无以事夫。",
-        desc: "你像班昭一样，才华横溢、思维敏捷，善于辩论与表达。你博学多识，能在传统与创新之间找到平衡，既有独立见解，又能以柔克刚，用智慧影响身边的人。"
-    },
-    INFJ: {
-        person: "老子",
-        gender: "男",
-        quote: "上善若水，水善利万物而不争。",
-        desc: "你像老子一样，洞察世事、内心深邃，追求一种更高的智慧。你善于理解他人，能看到事物背后的规律，不争不抢，却以柔克刚，以一种温和而深远的方式影响世界。"
-    },
-    INFP: {
-        person: "陶渊明",
-        gender: "男",
-        quote: "采菊东篱下，悠然见南山。",
-        desc: "你像陶渊明一样，内心纯净、向往自由，不愿被世俗束缚。你忠于自己的价值观，追求精神上的丰盈与安宁，在平凡的日子里也能发现诗意与美好。"
-    },
-    ENFJ: {
-        person: "孔子",
-        gender: "男",
-        quote: "己所不欲，勿施于人。",
-        desc: "你像孔子一样，心怀天下、以教化他人为己任。你善于倾听与引导，重视人与人之间的关系，希望通过自己的努力让世界变得更有秩序、更有温度。"
-    },
-    ENFP: {
-        person: "李白",
-        gender: "男",
-        quote: "天生我材必有用，千金散尽还复来。",
-        desc: "你像李白一样，热情奔放、才华横溢，向往无拘无束的生活。你充满想象力，敢于表达真实的自己，喜欢结交朋友，在自由中寻找灵感与快乐。"
-    },
-    ISTJ: {
-        person: "包拯",
-        gender: "男",
-        quote: "清心为治本，直道是身谋。",
-        desc: "你像包拯一样，正直严谨、坚守原则。你重视规则与责任，做事一丝不苟，值得信赖。你不畏强权，坚持心中的公义，是身边人最可靠的依靠。"
-    },
-    ISFJ: {
-        person: "墨子",
-        gender: "男",
-        quote: "兼相爱，交相利。",
-        desc: "你像墨子一样，默默付出、心怀大爱。你关注他人的需要，乐于奉献，追求平等与和平。你不张扬，却用实际行动守护着身边的人和心中的信念。"
-    },
-    ESTJ: {
-        person: "武则天",
-        gender: "女",
-        quote: "欲成大事者，至亲亦可舍。",
-        desc: "你像武则天一样，果断坚决、执行力极强。你目标清晰，敢于打破常规，做事雷厉风行。你有强大的掌控力，能在复杂局面中做出决断，是天生的管理者。"
-    },
-    ESFJ: {
-        person: "长孙皇后",
-        gender: "女",
-        quote: "以铜为镜，可以正衣冠。",
-        desc: "你像长孙皇后一样，温柔贤明、善于协调。你重视家庭与人际关系，乐于助人，能够在幕后默默支持他人。你懂得分寸，用智慧和包容维系着身边的和谐。"
-    },
-    ISTP: {
-        person: "花木兰",
-        gender: "女",
-        quote: "万里赴戎机，关山度若飞。",
-        desc: "你像花木兰一样，冷静务实、行动力强。你不喜欢空谈，更愿意用行动证明自己。面对困难，你沉着应对，勇敢担当，在关键时刻挺身而出。"
-    },
-    ISFP: {
-        person: "李清照",
-        gender: "女",
-        quote: "生当作人杰，死亦为鬼雄。",
-        desc: "你像李清照一样，敏感细腻、才华出众。你对美有着独特的感知力，情感丰富而深刻。你追求真实的自我表达，在平凡中创造出动人的诗意。"
-    },
-    ESTP: {
-        person: "妇好",
-        gender: "女",
-        quote: "巾帼不让须眉，商王武丁之妻。",
-        desc: "你像妇好一样，果敢善战、充满活力。你敢于冒险，反应迅速，善于在变化中抓住机会。你天生具有行动力和决断力，是冲锋在前的先锋人物。"
-    },
-    ESFP: {
-        person: "杨贵妃",
-        gender: "女",
-        quote: "回眸一笑百媚生，六宫粉黛无颜色。",
-        desc: "你像杨贵妃一样，热情开朗、热爱生活。你享受当下的美好，善于感染身边的人。你懂得欣赏美、创造美，是人群中最耀眼的存在，用热情点亮每一天。"
+    female: {
+        empress: { name: "女帝", emoji: "👑" },
+        maid: { name: "宫女", emoji: "🏯" },
+        concubine: { name: "宠妃", emoji: "🌸" },
+        swordswoman: { name: "女侠", emoji: "⚔️" },
+        priestess: { name: "国师", emoji: "🔮" }
     }
 };
 
-// ===================== 题目数据 =====================
-// 每道题 3 个选项，每个选项给一个维度加分
-const QUESTIONS = [
-    {
-        q: "你穿越到战国末期，天下大乱。你会选择？",
-        options: [
-            { text: "投奔秦国，辅佐嬴政统一天下", score: { T: 1, J: 1 } },
-            { text: "隐居山林，著书立说，思考天下大道", score: { I: 1, N: 1 } },
-            { text: "游说列国，传播自己的思想主张", score: { E: 1, F: 1 } }
+// ===================== 题目库 =====================
+const QUESTIONS = {
+    male: {
+        emperor: [
+            { story: "你刚坐上龙椅，朝堂之上全是老狐狸。有人上门求官。", q: "你打算用什么打动他？", options: [
+                { text: "金子 —— 重赏之下必有勇夫", score: { S:1, J:1 }, choice: "A" },
+                { text: "银子 —— 不多不少，刚刚好", score: { S:1, P:1 }, choice: "B" },
+                { text: "你的鞋子 —— 他要是嫌弃，就不配穿", score: { N:1, T:1 }, choice: "C" },
+                { text: "你的帽子 —— 给他个官做做", score: { N:1, F:1 }, choice: "D" }
+            ]},
+            { story: "这人看了你的东西，冷笑一声：“就这？”", q: "你怎么办？", options: [
+                { text: "拍桌子，把他轰出去", score: { E:1, T:1 }, choice: "A" },
+                { text: "微微一笑，问他想要什么", score: { I:1, F:1 }, choice: "B" },
+                { text: "当场给他出一道难题", score: { J:1, T:1 }, choice: "C" },
+                { text: "把鞋子脱下来，亲自给他穿上", score: { F:1, P:1 }, choice: "D" }
+            ]},
+            { story: "终于招到几个人，但这些人天天吵架，朝堂像菜市场。", q: "你：", options: [
+                { text: "制定规则，谁吵罚谁", score: { J:1, T:1 }, choice: "A" },
+                { text: "让他们吵，吵出结果为止", score: { P:1, E:1 }, choice: "B" },
+                { text: "私下找每个人谈心", score: { F:1, I:1 }, choice: "C" },
+                { text: "把最吵的那个调去扫厕所", score: { J:1, S:1 }, choice: "D" }
+            ]},
+            { story: "边境告急，将军问你要不要出兵。", q: "你：", options: [
+                { text: "打！犯我强汉者，虽远必诛", score: { E:1, T:1 }, choice: "A" },
+                { text: "先派使者去谈，谈不拢再说", score: { F:1, J:1 }, choice: "B" },
+                { text: "问问百姓怎么说", score: { F:1, S:1 }, choice: "C" },
+                { text: "算了，打不过，割地求和", score: { I:1, P:1 }, choice: "D" }
+            ]}
+        ],
+        eunuch: [
+            { story: "你刚入宫，老太监让你选个差事。", q: "你选：", options: [
+                { text: "给皇帝倒夜壶 —— 最脏，但离皇帝最近", score: { E:1, S:1 }, choice: "A" },
+                { text: "管库房钥匙 —— 油水多，但风险大", score: { T:1, J:1 }, choice: "B" },
+                { text: "伺候皇后梳头 —— 活轻，但伴君如伴虎", score: { F:1, I:1 }, choice: "C" },
+                { text: "扫院子 —— 没人注意你，安全", score: { I:1, S:1 }, choice: "D" }
+            ]},
+            { story: "你发现有人在皇帝饭菜里下毒。", q: "你：", options: [
+                { text: "当场揭发，大义凛然", score: { E:1, T:1 }, choice: "A" },
+                { text: "偷偷把菜换了，谁也不说", score: { I:1, F:1 }, choice: "B" },
+                { text: "记下是谁，以后拿来威胁", score: { T:1, P:1 }, choice: "C" },
+                { text: "假装没看见，躲远点", score: { I:1, P:1 }, choice: "D" }
+            ]},
+            { story: "皇帝开始信任你，让你传话。", q: "你：", options: [
+                { text: "原话原传，一字不改", score: { S:1, J:1 }, choice: "A" },
+                { text: "添油加醋，看谁不顺眼就坑谁", score: { T:1, E:1 }, choice: "B" },
+                { text: "只传好话，坏话烂在肚子里", score: { F:1, I:1 }, choice: "C" },
+                { text: "看心情，想传什么传什么", score: { P:1, E:1 }, choice: "D" }
+            ]},
+            { story: "皇后和贵妃同时拉拢你。", q: "你：", options: [
+                { text: "两边都答应，两边都不得罪", score: { P:1, E:1 }, choice: "A" },
+                { text: "选皇后，毕竟她是正宫", score: { J:1, S:1 }, choice: "B" },
+                { text: "选贵妃，因为她更得宠", score: { E:1, S:1 }, choice: "C" },
+                { text: "谁也不选，说“奴才只忠于皇上”", score: { J:1, T:1 }, choice: "D" }
+            ]}
+        ],
+        corrupt: [
+            { story: "你上任第一天，有人送来一箱银子。", q: "你：", options: [
+                { text: "收下，但记在本子上", score: { T:1, J:1 }, choice: "A" },
+                { text: "退回去，说“本官两袖清风”", score: { F:1, S:1 }, choice: "B" },
+                { text: "收下，然后分一半给百姓", score: { F:1, P:1 }, choice: "C" },
+                { text: "问他“就这些？”", score: { E:1, T:1 }, choice: "D" }
+            ]},
+            { story: "你贪的钱被发现了。", q: "你：", options: [
+                { text: "连夜跑路", score: { P:1, I:1 }, choice: "A" },
+                { text: "把钱吐出来，写检讨", score: { J:1, S:1 }, choice: "B" },
+                { text: "反咬一口，说是别人陷害", score: { T:1, E:1 }, choice: "C" },
+                { text: "把钱换成粮食，赈灾", score: { F:1, P:1 }, choice: "D" }
+            ]},
+            { story: "上面派来一个钦差查你。", q: "你：", options: [
+                { text: "送礼，把他拉下水", score: { T:1, P:1 }, choice: "A" },
+                { text: "威胁他，让他不敢查", score: { E:1, T:1 }, choice: "B" },
+                { text: "主动交代，争取宽大", score: { J:1, F:1 }, choice: "C" },
+                { text: "把账本烧了，死不承认", score: { P:1, E:1 }, choice: "D" }
+            ]},
+            { story: "你被抓了，押赴刑场。", q: "你最后想的是：", options: [
+                { text: "后悔，早知道少贪点", score: { J:1, F:1 }, choice: "A" },
+                { text: "值了，这辈子享受过了", score: { P:1, S:1 }, choice: "B" },
+                { text: "不甘心，还有人贪得比我多", score: { T:1, E:1 }, choice: "C" },
+                { text: "无所谓，二十年后又是一条好汉", score: { P:1, E:1 }, choice: "D" }
+            ]}
+        ],
+        honest: [
+            { story: "你刚上任，发现衙门里所有人都在贪。", q: "你：", options: [
+                { text: "杀一儆百，先抓几个", score: { E:1, T:1 }, choice: "A" },
+                { text: "假装不知道，慢慢收集证据", score: { I:1, P:1 }, choice: "B" },
+                { text: "从自己做起，用行动感化他们", score: { F:1, S:1 }, choice: "C" },
+                { text: "上书朝廷，请求整顿", score: { J:1, F:1 }, choice: "D" }
+            ]},
+            { story: "有人给你送钱，说“这是规矩”。", q: "你：", options: [
+                { text: "当场翻脸，把他轰出去", score: { E:1, T:1 }, choice: "A" },
+                { text: "收下，然后上交国库", score: { J:1, S:1 }, choice: "B" },
+                { text: "收下，用来救济百姓", score: { F:1, P:1 }, choice: "C" },
+                { text: "笑着收下，转头就参他一本", score: { T:1, P:1 }, choice: "D" }
+            ]},
+            { story: "你查到一个大案，但牵扯到皇亲国戚。", q: "你：", options: [
+                { text: "一查到底，不管是谁", score: { J:1, T:1 }, choice: "A" },
+                { text: "先报告上司，看上面怎么说", score: { S:1, J:1 }, choice: "B" },
+                { text: "偷偷放风，让对方主动认错", score: { F:1, P:1 }, choice: "C" },
+                { text: "算了，惹不起", score: { P:1, I:1 }, choice: "D" }
+            ]},
+            { story: "百姓为你立了块碑，上面写着“青天”。", q: "你：", options: [
+                { text: "欣慰，觉得一切都值了", score: { E:1, F:1 }, choice: "A" },
+                { text: "惭愧，觉得自己做得还不够", score: { I:1, F:1 }, choice: "B" },
+                { text: "把碑砸了，说“别搞这些”", score: { T:1, E:1 }, choice: "C" },
+                { text: "把碑留着，继续做该做的事", score: { J:1, S:1 }, choice: "D" }
+            ]}
+        ],
+        monk: [
+            { story: "你在寺庙里，方丈让你选个活干。", q: "你选：", options: [
+                { text: "撞钟 —— 每天准时，清闲", score: { J:1, S:1 }, choice: "A" },
+                { text: "扫地 —— 扫心地，也扫尘埃", score: { I:1, F:1 }, choice: "B" },
+                { text: "化缘 —— 走遍天下，看尽人间", score: { E:1, P:1 }, choice: "C" },
+                { text: "抄经 —— 一笔一划，静心", score: { I:1, J:1 }, choice: "D" }
+            ]},
+            { story: "山下闹饥荒，难民涌到寺门口。", q: "你：", options: [
+                { text: "开仓放粮，救人要紧", score: { E:1, F:1 }, choice: "A" },
+                { text: "闭门念经，超度他们", score: { I:1, S:1 }, choice: "B" },
+                { text: "下山化缘，带粮食回来", score: { E:1, P:1 }, choice: "C" },
+                { text: "劝他们去别处", score: { T:1, S:1 }, choice: "D" }
+            ]},
+            { story: "一个杀人犯逃到寺里，求你收留。", q: "你：", options: [
+                { text: "收留，佛门广大，普度众生", score: { F:1, P:1 }, choice: "A" },
+                { text: "不收，让他去自首", score: { T:1, J:1 }, choice: "B" },
+                { text: "收留，但偷偷通知官府", score: { T:1, J:1 }, choice: "C" },
+                { text: "问他“你杀的人，该不该杀？”", score: { T:1, N:1 }, choice: "D" }
+            ]},
+            { story: "皇帝来寺里上香，问你“朕的江山能坐多久？”", q: "你：", options: [
+                { text: "说真话，直言不讳", score: { T:1, E:1 }, choice: "A" },
+                { text: "说好话，哄他开心", score: { F:1, E:1 }, choice: "B" },
+                { text: "不说话，只念经", score: { I:1, S:1 }, choice: "C" },
+                { text: "反问他“陛下觉得呢？”", score: { N:1, P:1 }, choice: "D" }
+            ]}
         ]
     },
-    {
-        q: "你来到唐朝长安，皇帝邀你入朝为官。你更想？",
-        options: [
-            { text: "担任要职，推行改革，治理国家", score: { E: 1, J: 1 } },
-            { text: "在翰林院做学问，研究典籍", score: { I: 1, N: 1 } },
-            { text: "走遍天下，用诗词记录盛世", score: { E: 1, P: 1 } }
-        ]
-    },
-    {
-        q: "你身处春秋时期，孔子正在招收弟子。你会？",
-        options: [
-            { text: "拜入孔门，学习礼乐，教化世人", score: { F: 1, J: 1 } },
-            { text: "与孔子辩论，提出自己的见解", score: { T: 1, P: 1 } },
-            { text: "默默旁听，独自思考其中的道理", score: { I: 1, N: 1 } }
-        ]
-    },
-    {
-        q: "你被派去治理一座灾荒中的城池。你的第一反应是？",
-        options: [
-            { text: "立即制定方案，调拨粮草，稳定局势", score: { S: 1, J: 1 } },
-            { text: "先走访百姓，了解真实情况再行动", score: { F: 1, P: 1 } },
-            { text: "分析灾荒的根源，设计长远的制度", score: { N: 1, T: 1 } }
-        ]
-    },
-    {
-        q: "你生活在宋朝，面对外敌入侵。你会？",
-        options: [
-            { text: "投笔从戎，上阵杀敌", score: { E: 1, S: 1 } },
-            { text: "写诗明志，用文字唤醒人心", score: { I: 1, F: 1 } },
-            { text: "研究兵法，为将领出谋划策", score: { T: 1, J: 1 } }
-        ]
-    },
-    {
-        q: "你是一位古代工匠，面对一项复杂的工程。你更倾向于？",
-        options: [
-            { text: "按传统方法稳扎稳打，确保不出错", score: { S: 1, J: 1 } },
-            { text: "尝试新方法，哪怕有风险也要创新", score: { N: 1, P: 1 } },
-            { text: "与同行讨论，博采众长", score: { E: 1, F: 1 } }
-        ]
-    },
-    {
-        q: "你穿越到汉朝，被任命为地方官。你更看重？",
-        options: [
-            { text: "严格执法，维护秩序", score: { T: 1, J: 1 } },
-            { text: "体恤民情，以德服人", score: { F: 1, P: 1 } },
-            { text: "发展生产，让百姓富足", score: { S: 1, E: 1 } }
-        ]
-    },
-    {
-        q: "你在古代书院求学，先生让你评价一位历史人物。你会？",
-        options: [
-            { text: "客观分析其功过，不掺杂感情", score: { T: 1, N: 1 } },
-            { text: "关注他对百姓的影响，心怀悲悯", score: { F: 1, S: 1 } },
-            { text: "结合时代背景，给出全面评价", score: { N: 1, J: 1 } }
-        ]
-    },
-    {
-        q: "你是一位古代女子，面对命运的安排。你会？",
-        options: [
-            { text: "勇敢抗争，掌握自己的命运", score: { E: 1, T: 1 } },
-            { text: "以柔克刚，用智慧化解困境", score: { I: 1, F: 1 } },
-            { text: "顺应天命，在平凡中寻找安宁", score: { S: 1, P: 1 } }
-        ]
-    },
-    {
-        q: "你被邀请参加一场古代文人的雅集。你会？",
-        options: [
-            { text: "高谈阔论，成为全场焦点", score: { E: 1, N: 1 } },
-            { text: "静静聆听，偶尔发表独到见解", score: { I: 1, T: 1 } },
-            { text: "与志同道合者私下交流，结交知己", score: { F: 1, P: 1 } }
-        ]
-    },
-    {
-        q: "你身处乱世，手中有一支军队。你的选择是？",
-        options: [
-            { text: "攻城略地，建立自己的霸业", score: { E: 1, J: 1 } },
-            { text: "保境安民，守护一方百姓", score: { F: 1, S: 1 } },
-            { text: "审时度势，选择明主辅佐", score: { I: 1, T: 1 } }
-        ]
-    },
-    {
-        q: "你即将离开人世，回望一生。你最希望留下？",
-        options: [
-            { text: "不朽的功业，改变时代的走向", score: { E: 1, J: 1 } },
-            { text: "传世的思想，启迪后人的智慧", score: { I: 1, N: 1 } },
-            { text: "温暖的情谊，被人深深铭记", score: { F: 1, P: 1 } }
+    female: {
+        empress: [
+            { story: "你刚坐上龙椅，朝堂之上全是老狐狸。有人上门求官。", q: "你打算用什么打动她/他？", options: [
+                { text: "金子 —— 重赏之下必有勇夫", score: { S:1, J:1 }, choice: "A" },
+                { text: "银子 —— 不多不少，刚刚好", score: { S:1, P:1 }, choice: "B" },
+                { text: "你的凤冠 —— 她要是嫌弃，就不配戴", score: { N:1, T:1 }, choice: "C" },
+                { text: "你的玉玺 —— 给她个官做做", score: { N:1, F:1 }, choice: "D" }
+            ]},
+            { story: "这人看了你的东西，冷笑一声：“就这？”", q: "你怎么办？", options: [
+                { text: "拍桌子，把她轰出去", score: { E:1, T:1 }, choice: "A" },
+                { text: "微微一笑，问她想要什么", score: { I:1, F:1 }, choice: "B" },
+                { text: "当场给她出一道难题", score: { J:1, T:1 }, choice: "C" },
+                { text: "把凤冠摘下来，亲自给她戴上", score: { F:1, P:1 }, choice: "D" }
+            ]},
+            { story: "终于招到几个人，但这些人天天吵架，朝堂像菜市场。", q: "你：", options: [
+                { text: "制定规则，谁吵罚谁", score: { J:1, T:1 }, choice: "A" },
+                { text: "让她们吵，吵出结果为止", score: { P:1, E:1 }, choice: "B" },
+                { text: "私下找每个人谈心", score: { F:1, I:1 }, choice: "C" },
+                { text: "把最吵的那个调去扫厕所", score: { J:1, S:1 }, choice: "D" }
+            ]},
+            { story: "边境告急，将军问你要不要出兵。", q: "你：", options: [
+                { text: "打！犯我强汉者，虽远必诛", score: { E:1, T:1 }, choice: "A" },
+                { text: "先派使者去谈，谈不拢再说", score: { F:1, J:1 }, choice: "B" },
+                { text: "问问百姓怎么说", score: { F:1, S:1 }, choice: "C" },
+                { text: "算了，打不过，割地求和", score: { I:1, P:1 }, choice: "D" }
+            ]}
+        ],
+        maid: [
+            { story: "你刚入宫，老宫女让你选个差事。", q: "你选：", options: [
+                { text: "给皇帝倒夜壶 —— 最脏，但离皇帝最近", score: { E:1, S:1 }, choice: "A" },
+                { text: "管库房钥匙 —— 油水多，但风险大", score: { T:1, J:1 }, choice: "B" },
+                { text: "伺候皇后梳头 —— 活轻，但伴君如伴虎", score: { F:1, I:1 }, choice: "C" },
+                { text: "扫院子 —— 没人注意你，安全", score: { I:1, S:1 }, choice: "D" }
+            ]},
+            { story: "你发现有人在皇后饭菜里下毒。", q: "你：", options: [
+                { text: "当场揭发，大义凛然", score: { E:1, T:1 }, choice: "A" },
+                { text: "偷偷把菜换了，谁也不说", score: { I:1, F:1 }, choice: "B" },
+                { text: "记下是谁，以后拿来威胁", score: { T:1, P:1 }, choice: "C" },
+                { text: "假装没看见，躲远点", score: { I:1, P:1 }, choice: "D" }
+            ]},
+            { story: "皇后开始信任你，让你传话。", q: "你：", options: [
+                { text: "原话原传，一字不改", score: { S:1, J:1 }, choice: "A" },
+                { text: "添油加醋，看谁不顺眼就坑谁", score: { T:1, E:1 }, choice: "B" },
+                { text: "只传好话，坏话烂在肚子里", score: { F:1, I:1 }, choice: "C" },
+                { text: "看心情，想传什么传什么", score: { P:1, E:1 }, choice: "D" }
+            ]},
+            { story: "贵妃和德妃同时拉拢你。", q: "你：", options: [
+                { text: "两边都答应，两边都不得罪", score: { P:1, E:1 }, choice: "A" },
+                { text: "选皇后，毕竟她是正宫", score: { J:1, S:1 }, choice: "B" },
+                { text: "选贵妃，因为她更得宠", score: { E:1, S:1 }, choice: "C" },
+                { text: "谁也不选，说“奴婢只忠于皇上”", score: { J:1, T:1 }, choice: "D" }
+            ]}
+        ],
+        concubine: [
+            { story: "你刚入宫，皇上今夜翻牌子。", q: "你：", options: [
+                { text: "精心打扮，准备才艺", score: { E:1, F:1 }, choice: "A" },
+                { text: "装病，欲擒故纵", score: { I:1, P:1 }, choice: "B" },
+                { text: "托人给太监送银子，打点关系", score: { T:1, J:1 }, choice: "C" },
+                { text: "什么都不做，顺其自然", score: { P:1, S:1 }, choice: "D" }
+            ]},
+            { story: "皇后当众刁难你。", q: "你：", options: [
+                { text: "当场怼回去，绝不示弱", score: { E:1, T:1 }, choice: "A" },
+                { text: "忍气吞声，回去再想办法", score: { I:1, F:1 }, choice: "B" },
+                { text: "向皇上告状，让他心疼", score: { F:1, E:1 }, choice: "C" },
+                { text: "拉拢其他嫔妃，一起对付皇后", score: { T:1, P:1 }, choice: "D" }
+            ]},
+            { story: "你怀了龙种。", q: "你：", options: [
+                { text: "小心翼翼，谁都不信", score: { I:1, J:1 }, choice: "A" },
+                { text: "昭告天下，巩固地位", score: { E:1, J:1 }, choice: "B" },
+                { text: "暗中提防，怕人下毒", score: { T:1, J:1 }, choice: "C" },
+                { text: "无所谓，是男是女都一样", score: { P:1, F:1 }, choice: "D" }
+            ]},
+            { story: "皇上渐渐冷落你。", q: "你：", options: [
+                { text: "主动出击，制造偶遇", score: { E:1, T:1 }, choice: "A" },
+                { text: "安静等待，相信他会回来", score: { I:1, F:1 }, choice: "B" },
+                { text: "找新的靠山，另谋出路", score: { T:1, P:1 }, choice: "C" },
+                { text: "看开了，随他去吧", score: { P:1, F:1 }, choice: "D" }
+            ]}
+        ],
+        swordswoman: [
+            { story: "你刚出师门，师父让你选一把兵器。", q: "你选：", options: [
+                { text: "长剑 —— 光明正大，堂堂正正", score: { T:1, J:1 }, choice: "A" },
+                { text: "短刀 —— 灵活隐蔽，一击致命", score: { S:1, P:1 }, choice: "B" },
+                { text: "软鞭 —— 以柔克刚，出其不意", score: { N:1, P:1 }, choice: "C" },
+                { text: "暗器 —— 不讲究，能赢就行", score: { T:1, P:1 }, choice: "D" }
+            ]},
+            { story: "你路见不平，但对方是权贵之子。", q: "你：", options: [
+                { text: "照打不误，管他是谁", score: { E:1, T:1 }, choice: "A" },
+                { text: "先忍下，找机会再收拾他", score: { I:1, J:1 }, choice: "B" },
+                { text: "暗中收集证据，告到官府", score: { T:1, J:1 }, choice: "C" },
+                { text: "算了，惹不起躲得起", score: { P:1, I:1 }, choice: "D" }
+            ]},
+            { story: "你救了个人，对方要重金谢你。", q: "你：", options: [
+                { text: "收下，行走江湖需要盘缠", score: { S:1, E:1 }, choice: "A" },
+                { text: "不收，行侠仗义是本分", score: { F:1, I:1 }, choice: "B" },
+                { text: "收一半，剩下的让她救济穷人", score: { F:1, P:1 }, choice: "C" },
+                { text: "收下，然后转手捐给灾民", score: { F:1, E:1 }, choice: "D" }
+            ]},
+            { story: "你被官府通缉，走投无路。", q: "你：", options: [
+                { text: "隐姓埋名，远走他乡", score: { I:1, P:1 }, choice: "A" },
+                { text: "投靠山寨，落草为寇", score: { E:1, P:1 }, choice: "B" },
+                { text: "主动自首，说明冤情", score: { J:1, S:1 }, choice: "C" },
+                { text: "继续行侠，死也要站着死", score: { E:1, T:1 }, choice: "D" }
+            ]}
+        ],
+        priestess: [
+            { story: "你刚被册封为国师，皇帝问你最擅长什么。", q: "你：", options: [
+                { text: "观星象，测吉凶 —— 用天意说话", score: { N:1, J:1 }, choice: "A" },
+                { text: "炼丹药，求长生 —— 用欲望说话", score: { S:1, P:1 }, choice: "B" },
+                { text: "读人心，断因果 —— 用智慧说话", score: { N:1, F:1 }, choice: "C" },
+                { text: "什么都不说，只微微一笑 —— 用神秘说话", score: { N:1, I:1 }, choice: "D" }
+            ]},
+            { story: "朝中大旱，百姓求你祈雨。", q: "你：", options: [
+                { text: "设坛做法，诚心祈雨", score: { S:1, J:1 }, choice: "A" },
+                { text: "告诉皇帝“天机不可泄露”，让他自己反省", score: { N:1, I:1 }, choice: "B" },
+                { text: "暗中挖渠引水，用实绩服人", score: { S:1, J:1 }, choice: "C" },
+                { text: "说“这是天罚，需皇帝下罪己诏”", score: { N:1, F:1 }, choice: "D" }
+            ]},
+            { story: "一个大臣暗中拉拢你，想让你帮他篡位。", q: "你：", options: [
+                { text: "当场拒绝，并警告他", score: { T:1, J:1 }, choice: "A" },
+                { text: "假意答应，转头告诉皇帝", score: { T:1, P:1 }, choice: "B" },
+                { text: "不拒绝也不答应，看他能开出什么价", score: { P:1, T:1 }, choice: "C" },
+                { text: "用天象吓唬他，让他自己退缩", score: { N:1, F:1 }, choice: "D" }
+            ]},
+            { story: "皇帝越来越依赖你，甚至让你参与朝政。", q: "你：", options: [
+                { text: "谨守本分，只谈天象不谈国事", score: { I:1, J:1 }, choice: "A" },
+                { text: "借机进谏，用天意引导皇帝向善", score: { F:1, J:1 }, choice: "B" },
+                { text: "暗中培养自己的势力", score: { T:1, P:1 }, choice: "C" },
+                { text: "主动请辞，说“国师不该干政”", score: { I:1, P:1 }, choice: "D" }
+            ]}
         ]
     }
-];
+};
 
-// ===================== 游戏逻辑 =====================
-let currentQuestion = 0;
+// ===================== 终章题目 =====================
+const FINAL_QUESTION = {
+    story: "多年以后，你改造的王朝走向了不同的结局。",
+    q: "你希望后人如何评价你？",
+    options: [
+        { text: "治世之能臣，乱世之枭雄", score: { E:1, J:1 }, choice: "A" },
+        { text: "一个好人，一个笨人，但问心无愧", score: { F:1, P:1 }, choice: "B" },
+        { text: "他/她来过，改变了一些东西，然后走了", score: { I:1, N:1 }, choice: "C" },
+        { text: "我不在乎后人怎么看我，我只在乎当时的选择", score: { P:1, N:1 }, choice: "D" }
+    ]
+};
+
+// ===================== 结局数据 =====================
+const ENDINGS = {
+    male: {
+        emperor: {
+            A: { title: "👑 开创盛世", desc: "你铁腕治国，整顿朝纲，开创一代盛世。后人称你“千古一帝”。" },
+            B: { title: "🌸 仁政归心", desc: "你以德服人，轻徭薄赋，天下归心。史书说你“仁德之君”。" },
+            C: { title: "🌫️ 王朝衰落", desc: "你一再退让，权臣当道，王朝在你手中走向衰落。" },
+            D: { title: "🍃 禅位归隐", desc: "你看透了权力的虚无，主动禅位，云游天下。" }
+        },
+        eunuch: {
+            A: { title: "⚡ 权倾朝野", desc: "你从一个倒夜壶的小太监，爬到了权力的顶峰。" },
+            B: { title: "🕊️ 忠仆留名", desc: "你一生忠于主子，虽然位卑，但青史留名。" },
+            C: { title: "💀 不得善终", desc: "你机关算尽，最终被人反算，死在冷宫。" },
+            D: { title: "🌿 安度晚年", desc: "你谁也没得罪，平平安安活到了最后。" }
+        },
+        corrupt: {
+            A: { title: "💰 富可敌国", desc: "你贪了一辈子，富可敌国，但最终被抄家。" },
+            B: { title: "🕯️ 散尽家财", desc: "你良心发现，散尽家财赈灾，百姓为你求情。" },
+            C: { title: "🌪️ 远走他乡", desc: "你连夜跑路，隐姓埋名，在异乡度过余生。" },
+            D: { title: "⚔️ 反噬而死", desc: "你反咬别人，但被更狠的人反噬，死于非命。" }
+        },
+        honest: {
+            A: { title: "☀️ 青天留名", desc: "你一查到底，百姓爱戴，史书称你“青天”。" },
+            B: { title: "🌧️ 含冤而死", desc: "你得罪了太多人，最终被陷害，含冤而死。" },
+            C: { title: "🌫️ 被同化", desc: "你渐渐被官场同化，变成了当初自己最讨厌的人。" },
+            D: { title: "🍂 辞官归田", desc: "你看透了官场，辞官归田，独善其身。" }
+        },
+        monk: {
+            A: { title: "🙏 得道高僧", desc: "你潜心修行，终成一代高僧，普度众生。" },
+            B: { title: "🌊 入世济民", desc: "你下山济世，救民于水火，被称为“活佛”。" },
+            C: { title: "🌪️ 破戒还俗", desc: "你终究没能守住戒律，还俗入红尘。" },
+            D: { title: "🕯️ 一生平凡", desc: "你一辈子撞钟扫地，无人知晓，但你心安。" }
+        }
+    },
+    female: {
+        empress: {
+            A: { title: "👑 开创盛世", desc: "你铁腕治国，整顿朝纲，开创一代盛世。后人称你“千古女帝”。" },
+            B: { title: "🌸 仁政归心", desc: "你以德服人，轻徭薄赋，天下归心。史书说你“仁德女君”。" },
+            C: { title: "🌫️ 王朝衰落", desc: "你一再退让，权臣当道，王朝在你手中走向衰落。" },
+            D: { title: "🍃 禅位归隐", desc: "你看透了权力的虚无，主动禅位，云游天下。" }
+        },
+        maid: {
+            A: { title: "⚡ 权倾后宫", desc: "你从一个扫院子的小宫女，爬到了后宫之主的位置。" },
+            B: { title: "🕊️ 忠仆留名", desc: "你一生忠于主子，虽然位卑，但青史留名。" },
+            C: { title: "💀 不得善终", desc: "你机关算尽，最终被人反算，死在冷宫。" },
+            D: { title: "🌿 安度晚年", desc: "你谁也没得罪，平平安安活到了最后。" }
+        },
+        concubine: {
+            A: { title: "🌹 宠冠六宫", desc: "你艳压群芳，宠冠六宫，但树敌无数。" },
+            B: { title: "👑 母仪天下", desc: "你从宠妃一步步走到皇后，最终母仪天下。" },
+            C: { title: "❄️ 冷宫终老", desc: "你失了宠，被打入冷宫，孤独终老。" },
+            D: { title: "🕊️ 出宫自由", desc: "你设计离开皇宫，隐姓埋名，过上了自由的生活。" }
+        },
+        swordswoman: {
+            A: { title: "⚔️ 侠名远播", desc: "你行侠仗义，百姓爱戴，江湖人称“女侠”。" },
+            B: { title: "🌧️ 含冤而死", desc: "你得罪了太多人，最终被陷害，含冤而死。" },
+            C: { title: "🏯 被招安", desc: "你被朝廷招安，成了官府的人，却失去了初心。" },
+            D: { title: "🍂 归隐山林", desc: "你看透了江湖，归隐山林，独善其身。" }
+        },
+        priestess: {
+            A: { title: "🔮 一代宗师", desc: "你谨守国师本分，上知天文下知地理，皇帝敬你，百姓信你。后人称你“一代宗师”。" },
+            B: { title: "⚡ 权倾朝野", desc: "你从国师变成了实际掌权者，朝中大事小事都要问你。但你也树敌无数。" },
+            C: { title: "✨ 羽化登仙", desc: "你在某一天突然消失，只留下一句话：“天机已泄，我该走了。”后人说你羽化登仙了。" },
+            D: { title: "🍃 被贬民间", desc: "你主动请辞，皇帝挽留不住，你回到民间，继续做一个普通人。" }
+        }
+    }
+};
+
+// ===================== 游戏状态 =====================
+let gender = 'male';
+let currentPath = '';
+let currentQuestionIndex = 0;
+let questionList = [];
 let scores = { E: 0, I: 0, S: 0, N: 0, T: 0, F: 0, J: 0, P: 0 };
+let choiceCount = { A: 0, B: 0, C: 0, D: 0 };
 
-const questionArea = document.getElementById('questionArea');
+const startScreen = document.getElementById('startScreen');
+const questionScreen = document.getElementById('questionScreen');
 const resultArea = document.getElementById('resultArea');
 const progressFill = document.getElementById('progressFill');
+const storyText = document.getElementById('storyText');
 const questionText = document.getElementById('questionText');
 const optionsArea = document.getElementById('optionsArea');
+const mainFooter = document.getElementById('mainFooter');
 
+// ===================== 选择性别 =====================
+function selectGender(g) {
+    gender = g;
+    startScreen.style.display = 'none';
+    questionScreen.style.display = 'block';
+    resultArea.classList.remove('show');
+    mainFooter.style.display = 'none';
+    currentQuestionIndex = 0;
+    scores = { E: 0, I: 0, S: 0, N: 0, T: 0, F: 0, J: 0, P: 0 };
+    choiceCount = { A: 0, B: 0, C: 0, D: 0 };
+    currentPath = '';
+    showPathSelection();
+}
+
+// ===================== 选择身份 =====================
+function showPathSelection() {
+    const paths = PATHS[gender];
+    const pathList = Object.keys(paths);
+    
+    storyText.textContent = "你睁开眼，发现自己身处一个腐朽的王朝。系统提示：【请选择你的初始身份】";
+    questionText.innerHTML = `<span class="num">Q1.</span> 你决定以什么身份开局？`;
+    optionsArea.innerHTML = '';
+    
+    pathList.forEach((key, idx) => {
+        const p = paths[key];
+        const div = document.createElement('div');
+        div.className = 'option';
+        div.innerHTML = `${String.fromCharCode(65 + idx)}. ${p.emoji} ${p.name} —— ${
+            gender === 'male' ? 
+            (key === 'emperor' ? '名义上权力最大，但朝堂之上全是老狐狸' :
+             key === 'eunuch' ? '深宫之内，最接近权力也最危险' :
+             key === 'corrupt' ? '浑水摸鱼，先捞一笔再说' :
+             key === 'honest' ? '两袖清风，但处处碰壁' :
+             '跳出红尘，但天下没有清净地') :
+            (key === 'empress' ? '名义上权力最大，但朝堂之上全是老狐狸' :
+             key === 'maid' ? '深宫之内，最接近权力也最危险' :
+             key === 'concubine' ? '靠宠爱活着，贪的是情，也是势' :
+             key === 'swordswoman' ? '两袖清风，但处处碰壁' :
+             '上知天文下知地理，皇帝也要敬你三分')
+        }`;
+        div.onclick = () => {
+            currentPath = key;
+            currentQuestionIndex = 0;
+            const pathQuestions = QUESTIONS[gender][key];
+            questionList = [...pathQuestions, FINAL_QUESTION];
+            questionScreen.style.display = 'block';
+            resultArea.classList.remove('show');
+            renderQuestion();
+        };
+        optionsArea.appendChild(div);
+    });
+    
+    progressFill.style.width = '0%';
+}
+
+// ===================== 渲染题目 =====================
 function renderQuestion() {
-    if (currentQuestion >= QUESTIONS.length) {
+    if (currentQuestionIndex >= questionList.length) {
         showResult();
         return;
     }
 
-    const q = QUESTIONS[currentQuestion];
-    questionText.innerHTML = `<span class="num">Q${currentQuestion + 1}.</span> ${q.q}`;
+    const q = questionList[currentQuestionIndex];
+    storyText.textContent = q.story || '';
+    questionText.innerHTML = `<span class="num">Q${currentQuestionIndex + 2}.</span> ${q.q}`;
 
     optionsArea.innerHTML = '';
     q.options.forEach((opt, idx) => {
@@ -440,36 +603,37 @@ function renderQuestion() {
         optionsArea.appendChild(div);
     });
 
-    // 更新进度条
-    const progress = (currentQuestion / QUESTIONS.length) * 100;
+    const progress = ((currentQuestionIndex + 1) / (questionList.length + 1)) * 100;
     progressFill.style.width = progress + '%';
 }
 
+// ===================== 选择选项 =====================
 function selectOption(opt, el) {
-    // 防止重复点击
     if (el.classList.contains('selected')) return;
     el.classList.add('selected');
 
-    // 加分
     for (let key in opt.score) {
         if (scores[key] !== undefined) {
             scores[key] += opt.score[key];
         }
     }
+    
+    if (opt.choice) {
+        choiceCount[opt.choice]++;
+    }
 
-    // 延迟后进入下一题
     setTimeout(() => {
-        currentQuestion++;
+        currentQuestionIndex++;
         renderQuestion();
     }, 250);
 }
 
+// ===================== 显示结果 =====================
 function showResult() {
-    questionArea.style.display = 'none';
+    questionScreen.style.display = 'none';
     resultArea.classList.add('show');
     progressFill.style.width = '100%';
 
-    // 计算 MBTI
     const type = [
         scores.E >= scores.I ? 'E' : 'I',
         scores.S >= scores.N ? 'S' : 'N',
@@ -477,26 +641,41 @@ function showResult() {
         scores.J >= scores.P ? 'J' : 'P'
     ].join('');
 
-    const p = PERSONALITIES[type] || PERSONALITIES.INTJ;
+    const pool = gender === 'male' ? MALE : FEMALE;
+    const p = pool[type] || pool.INTJ;
 
     document.getElementById('resultType').textContent = type;
     document.getElementById('resultPerson').textContent = '你像 ' + p.person;
-    document.getElementById('resultGenderTag').textContent = p.gender === '女' ? '♀ 女性历史人物' : '♂ 男性历史人物';
+    document.getElementById('resultGenderTag').textContent = gender === 'female' ? '♀ 女性历史人物' : '♂ 男性历史人物';
     document.getElementById('resultQuote').textContent = '“' + p.quote + '”';
     document.getElementById('resultDesc').textContent = p.desc;
+
+    // 计算结局
+    let maxChoice = 'A';
+    let maxCount = choiceCount.A;
+    for (let c of ['B', 'C', 'D']) {
+        if (choiceCount[c] > maxCount) {
+            maxCount = choiceCount[c];
+            maxChoice = c;
+        }
+    }
+    const ending = ENDINGS[gender][currentPath][maxChoice];
+    document.getElementById('resultEnding').innerHTML = 
+        `<div class="ending-title">🏆 你的专属结局：${ending.title}</div>${ending.desc}`;
 }
 
+// ===================== 重新开始 =====================
 function restart() {
-    currentQuestion = 0;
+    currentQuestionIndex = 0;
     scores = { E: 0, I: 0, S: 0, N: 0, T: 0, F: 0, J: 0, P: 0 };
-    questionArea.style.display = 'block';
+    choiceCount = { A: 0, B: 0, C: 0, D: 0 };
+    currentPath = '';
+    startScreen.style.display = 'block';
+    questionScreen.style.display = 'none';
     resultArea.classList.remove('show');
     progressFill.style.width = '0%';
-    renderQuestion();
+    mainFooter.style.display = 'block';
 }
-
-// 启动
-renderQuestion();
 </script>
 </body>
 </html>
